@@ -21,8 +21,8 @@
             $hash = (string) $user['password'];
             if(password_verify($password,$hash)){
                 $_SESSION['user_id']=$user_id;
-                if(isset($_SESSION['user_id'])){
-                    $array_devolver['redirect'] ='http://localhost/php/admin.php';
+                if(isset($_SESSION['user_id'])){ // en qué caso esto no se cumpliría
+                    $array_devolver['redirect'] ='admin.php';
                 }
                 
             }else{
@@ -31,7 +31,8 @@
             }
 
         }else{
-        $array_devolver['error']="Usuario o contraseña invalida.";
+          $array_devolver['error']="Usuario o contraseña invalida.";
+          session_destroy();
         }
 
         echo json_encode($array_devolver);
