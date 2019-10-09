@@ -7,7 +7,7 @@ $(document).on("submit", ".form_login", function(event) {
         password: $("input[type='password']", $form).val()
     }
     $("#msg_error").hide();
-    var url_php = 'http://localhost/php/ajax/procesar_login.php';
+    var url_php = 'ajax/procesar_login.php';
 
     $.ajax({
             type: 'POST',
